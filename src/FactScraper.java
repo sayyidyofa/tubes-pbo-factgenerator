@@ -1,5 +1,3 @@
-package FactScraper;
-
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -11,7 +9,7 @@ import org.jsoup.nodes.Element;
 
 import javax.imageio.ImageIO;
 
-public class FactScraper {
+class FactScraper {
 
     private final String userAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.85 Safari/537.36";
     private Element rawFact = initializeHTML().select("div.td-item").first();
@@ -44,27 +42,24 @@ public class FactScraper {
 
 
 
-    public BufferedImage getFactImage() throws IOException {
+    BufferedImage getFactImage() throws IOException {
         String imgURL = this.rawFact.getElementsByTag("img").first().attr("src");
         return getImage(imgURL);
     }
 
-    public String getFactTitle(){
+    String getFactTitle(){
         Element rawFactTitle = this.rawFact.getElementsByClass("td-sml-current-item-title").first();
         return rawFactTitle.text();
     }
 
-    public String getFactContent(){
+    String getFactContent(){
         Element rawFactString = this.rawFact.getElementsByTag("p").first();
         return rawFactString.text();
     }
 
-    public String getFactSauce(){
+    String getFactSauce(){
         Element rawSauce = this.rawFact.getElementsByClass("button source").first();
         return rawSauce.attr("href");
     }
 
-    public FactScraper() throws IOException{
-
-    }
 }

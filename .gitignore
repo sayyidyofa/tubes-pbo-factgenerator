@@ -1,14 +1,7 @@
 ### Yoffa added stuff
 # Eclipse
-.classpath
-.project
-FactGenerator.iml
-*.iml
 
-#Intellij
-.idea/
-
-#java
+#Java
 out/
 
 ### Java template stuff

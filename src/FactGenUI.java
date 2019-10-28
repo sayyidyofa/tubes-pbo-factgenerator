@@ -7,13 +7,9 @@ import java.io.IOException;
 
 import javax.swing.*;
 
-import FactScraper.FactScraper;
-import WebHandler.WebHandler;
-import jdk.nashorn.internal.scripts.JO;
-
 public class FactGenUI {
 
-    public FactGenUI() {
+    private FactGenUI() {
 
         generateFact.addActionListener(new ActionListener() {
 
@@ -59,7 +55,6 @@ public class FactGenUI {
             case 0:
                 break;
             case 1:
-                System.exit(0);
             case 2:
                 System.exit(0);
         }
