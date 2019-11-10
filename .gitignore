@@ -1,7 +1,8 @@
 ### Yoffa added stuff
 # Intellij
 **/.idea/workspace.xml 
-**/.idea/
+**/.idea/compiler.xml
+**/.idea/misc.xml
 
 #Java
 out/
