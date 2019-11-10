@@ -1,27 +1,14 @@
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import javafx.scene.control.ProgressIndicator;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JProgressBar;
-import javax.swing.JTextArea;
-import javax.swing.WindowConstants;
-
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 import javax.imageio.ImageIO;
-
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import javax.swing.JProgressBar;
 
 
 public class FactGenUI{
@@ -36,22 +23,22 @@ public class FactGenUI{
                     FactScraper theFact = new FactScraper();
 
                     System.out.println("Retrieving fact image...");
-                    factFetchProgressBar.setString("Retrieving fact image...");
+                    //factFetchProgressBar.setString("Retrieving fact image...");
                     factImageLabel.setIcon(new ImageIcon(theFact.getFactImage()));
 
                     System.out.println("Retrieving fact title...");
-                    factFetchProgressBar.setString("Retrieving fact title...");
+                    //factFetchProgressBar.setString("Retrieving fact title...");
                     factTitleTextArea.setText(theFact.getFactTitle());
 
                     System.out.println("Retrieving fact content...");
-                    factFetchProgressBar.setString("Retrieving fact content...");
+                    //factFetchProgressBar.setString("Retrieving fact content...");
                     factContentTextArea.setText(theFact.getFactContent());
 
                     System.out.println("Retrieving fact sauce...");
-                    factFetchProgressBar.setString("Retrieving fact sauce...");
+                    //factFetchProgressBar.setString("Retrieving fact sauce...");
                     factSauceTextArea.setText(theFact.getFactSauce());
 
-                    factFetchProgressBar.setString("Done!");
+                    //factFetchProgressBar.setString("Done!");
 
                     // Open the fact sauce in default browser
                     factSauceTextArea.addMouseListener(new MouseAdapter() {
@@ -70,10 +57,13 @@ public class FactGenUI{
                     showErrorPopup(except.toString());
                 }
                 finally {
-                    factFetchProgressBar.setString("not running");
+                    //factFetchProgressBar.setString("not running");
                 }
+
             }
         });
+
+
 
         // Show the fact image or not
         toggleFactImageCheckBox.addItemListener(new ItemListener() {
@@ -84,6 +74,8 @@ public class FactGenUI{
             }
         });
     }
+
+
 
     public static void main(String[] args) throws IOException{
         frame = new JFrame("Fact Generator");
@@ -100,6 +92,7 @@ public class FactGenUI{
                 System.exit(0);
         }
 
+
         // Swing JFrame preparation
         frame.setResizable(false);
         frame.setContentPane(new FactGenUI().rootPanel);
@@ -110,6 +103,7 @@ public class FactGenUI{
         frame.setVisible(true);
     }
 
+
     // Spawn a MessageBox containing caught exceptions
     private void showErrorPopup(String exceptionParam) {
         JOptionPane.showMessageDialog(
@@ -119,6 +113,7 @@ public class FactGenUI{
                 JOptionPane.INFORMATION_MESSAGE
         );
     }
+
 
     // Swing Elements declaration
     private static JFrame frame;
@@ -133,6 +128,10 @@ public class FactGenUI{
     private JTextArea factSauceTextArea;
     private JTextArea factTitleTextArea;
     private JCheckBox toggleFactImageCheckBox;
-    private JProgressBar factFetchProgressBar;
+    private JPanel utamaPanel;
+    private JTabbedPane tabbedPane1;
+    private JRadioButton smallImage;
+    private JRadioButton mediumImage;
+    private JRadioButton largeImage;
 
 }

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="FactGenerator" options="--add-exports=jdk.scripting.nashorn/jdk.nashorn.internal.scripts=ALL-UNNAMED" />
+      <module name="FactGenerator" options="" />
     </option>
   </component>
 </project>
