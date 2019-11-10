@@ -1,14 +1,10 @@
-import javafx.scene.control.ProgressIndicator;
-
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.*;
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import javax.swing.JProgressBar;
 
 
 public class FactGenUI{
@@ -44,7 +40,6 @@ public class FactGenUI{
                     factSauceTextArea.addMouseListener(new MouseAdapter() {
                         @Override
                         public void mouseClicked(MouseEvent e) {
-                            System.out.println("Length: "+ factSauceTextArea.getText().length());
                             try {
                                 WebHandler.openURI(factSauceTextArea.getText());
                             } catch (IOException | URISyntaxException except) {
@@ -56,10 +51,6 @@ public class FactGenUI{
                 catch (RuntimeException | IOException except){
                     showErrorPopup(except.toString());
                 }
-                finally {
-                    //factFetchProgressBar.setString("not running");
-                }
-
             }
         });
 
@@ -130,6 +121,7 @@ public class FactGenUI{
     private JCheckBox toggleFactImageCheckBox;
     private JPanel utamaPanel;
     private JTabbedPane tabbedPane1;
+    private JPanel imagePanel;
     private JRadioButton smallImage;
     private JRadioButton mediumImage;
     private JRadioButton largeImage;
